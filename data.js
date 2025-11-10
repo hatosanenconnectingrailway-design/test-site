@@ -4,7 +4,7 @@ const mediaData = [
     {
       type: "video",
       name: "紹介動画",
-      url: "media/ウミガメさんとスープ説明動画 改.mp4"
+      url: "ウミガメさんとスープ説明動画 改.mp4"
     },
     {
         type: "audio",

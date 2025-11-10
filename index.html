@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>PDFスライドショー & メディアビューア</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  </head>
+  <body>
+    <aside id="sidebar">
+      <div id="menu-header">メディア一覧 (Mで開閉)</div>
+      <div id="media-menu"></div>
+    </aside>
+
+    <div class="main-content" id="main-content">
+      <div class="container" id="container">
+        <div class="viewer">
+          <div id="loading">PDFを読み込み中...</div>
+          <canvas id="pdf-canvas" style="display:none;"></canvas>
+        </div>
+        <div class="controls" id="controls">
+          <button id="prevBtn">◀ 前</button>
+          <button id="playBtn">▶ 再生</button>
+          <button id="stopBtn">■ 停止</button>
+          <button id="nextBtn">次 ▶</button>
+          <span id="pageInfo">0 / 0</span>
+        </div>
+      </div>
+    </div>
+    
+    <div id="media-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-btn" id="closeModal">&times;</span>
+      </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+/* style.css */
+html,body {
+    height:100%; margin:0; font-family:"Segoe UI",sans-serif;
+    background:#111; color:#fff; overflow:hidden;
+  }
+  /* レイアウト全体の変更 */
+  body {
+    display: flex;
+  }
+  
+  /* メニューパネル */
+  #sidebar {
+    width: 0; /* 閉じている状態 */
+    height: 100vh;
+    background: #282c34;
+    color: #fff;
+    overflow-y: auto;
+    transition: width 0.3s ease;
+    flex-shrink: 0;
+  }
+  #sidebar.open {
+    width: 350px; /* 開いている状態 */
+  }
+  #menu-header {
+    padding: 15px;
+    font-weight: bold;
+    background: #1e2227;
+    border-bottom: 1px solid #3a3f4a;
+  }
+  #media-menu {
+    padding: 10px;
+  }
+  .media-group-title {
+    font-size: 14px;
+    color: #bbb;
+    padding: 8px 0;
+    margin-top: 10px;
+    border-bottom: 1px dashed #3a3f4a;
+  }
+  .media-item {
+    padding: 8px 0;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.2s;
+  }
+  .media-item:hover {
+    background: #3a3f4a;
+  }
+  
+  /* メインコンテンツ */
+  .main-content {
+    flex-grow: 1;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* PDFビューアのスタイルはほぼそのまま */
+  .container { 
+    display:flex; flex-direction:column; height:100vh; 
+  }
+  .viewer { 
+    flex:1; display:flex; justify-content:center; align-items:center; 
+  }
+  canvas {
+    max-width:95%; max-height:95%;
+    background:#fff; box-shadow:0 8px 24px rgba(0,0,0,0.5);
+  }
+  .controls {
+    display:flex; justify-content:center; align-items:center;
+    gap:8px; padding:8px; background:#222; transition:opacity 0.3s;
+  }
+  .controls.hidden { 
+    opacity:0; pointer-events:none; 
+  }
+  button {
+    padding:8px 14px; border:none; border-radius:6px; cursor:pointer;
+    background:#444; color:#fff; font-size:14px;
+  }
+  button:hover { 
+    background:#666; 
+  }
+  #pageInfo { 
+    margin-left:12px; 
+  }
+  #loading { 
+    text-align:center; margin-top:30vh; font-size:20px; 
+  }
+  .error { 
+    color:#f66; text-align:center; padding:20px; 
+  }
+  
+  /* メディア表示用モーダル (全面表示) */
+  .modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal.hidden {
+    display: none;
+  }
+  .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content img,
+  .modal-content video {
+    max-width: 100%;
+    max-height: 100vh;
+    display: block;
+  }
+  .modal-content audio {
+      width: 80vw;
+  }
+  .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .close-btn:hover,
+  .close-btn:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+  /* style.css (追加/修正) */
+
+/* ... (既存のスタイル) */
+
+/* メディアアイテムのコンテナとボタンのスタイル */
+.media-item-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    font-size: 16px;
+    border-bottom: 1px dotted #3a3f4a;
+}
+.media-item {
+    cursor: pointer;
+    flex-grow: 1; /* 名前部分が伸びる */
+    padding-right: 10px;
+    transition: background 0.2s;
+}
+.media-item:hover {
+    background: #3a3f4a;
+}
+
+/* 音声アイテムの場合、ボタンがあるのでクリック可能なのはボタンのみに */
+.audio-item .media-item {
+    cursor: default;
+}
+.audio-item .media-item:hover {
+    background: none;
+}
+
+.audio-control-btn {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background: #5cb85c; /* 再生ボタンの色 */
+    color: white;
+    font-size: 12px;
+}
+.audio-control-btn:hover {
+    background: #449d44;
+}
